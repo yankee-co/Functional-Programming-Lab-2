@@ -6,10 +6,11 @@
  </p>
  <p align="right"><b>Студент(-ка)</b>: Землянський Едуард КВ-22</p>
  <p align="right"><b>Рік</b>: рік</p>
- ## Загальне завдання
- <!-- Зазначається загальне завдання -->
- ## Варіант <номер варіанту>
- <!-- Зазначається завдання за варіантом -->
+
+## Варіант 8
+
+<img width="798" height="404" alt="image" src="https://github.com/user-attachments/assets/7049478b-04e3-4198-9583-1a7a3bb32387" />
+
  ## Лістинг функції reverse-and-nest-tail
  ```lisp
 (defun reverse-and-nest-tail (lst)
@@ -20,18 +21,7 @@
       (t (reverse-helper (cdr lst) (list (car lst) acc)))))
   (reverse-helper lst nil))
  ```
- ### Тестові набори та утиліти
- ```lisp
- (defun test-fn (fn args expected)
-  (let ((result (apply fn args)))
-    (format t "Expected: ~A~%" expected)
-    (format t "Result:   ~A~%" result)
-    (format t "=> ~A~%" (if (equal result expected) "PASSED" "FAILED"))))```
- ### Тестування
-```lisp
-(test-fn #'reverse-and-nest-tail '((a b c)) '(C (B (A))))
-(test-fn #'reverse-and-nest-tail '((1 2 3 4)) '(4 (3 (2 (1)))))
- ```
+ 
  ## Лістинг функції compress-list
  ```lisp
 (defun compress-list (lst)
@@ -47,12 +37,39 @@
       nil
       (compress-helper (cdr lst) (car lst) 1)))
  ```
- ### Тестові набори та утиліти
+
+### Тестові набори та утиліти
  ```lisp
- ;; використовується та сама test-fn
+ (defun test-fn (fn args expected)
+  (let ((result (apply fn args)))
+    (format t "Expected: ~A~%" expected)
+    (format t "Result:   ~A~%" result)
+    (format t "=> ~A~%" (if (equal result expected) "PASSED" "FAILED"))))```
+ ### Тестування
+```lisp
+(test-fn #'reverse-and-nest-tail '((a b c)) '(C (B (A))))
+(test-fn #'reverse-and-nest-tail '((1 2 3 4)) '(4 (3 (2 (1)))))
  ```
+
  ### Тестування
  ```lisp
-(test-fn #'compress-list '((1 a a 3 3 3 b)) '((1 1) (2 A) (3 3) (1 B)))
-(test-fn #'compress-list '((x x x y z z)) '((3 X) (1 Y) (2 Z)))
+CL-USER > (test-fn #'reverse-and-nest-tail '((a b c)) '(C (B (A))))
+Expected: (C (B (A)))
+Result:   (C (B (A)))
+=> PASSED
+
+CL-USER > (test-fn #'reverse-and-nest-tail '((1 2 3 4)) '(4 (3 (2 (1)))))
+Expected: (4 (3 (2 (1))))
+Result:   (4 (3 (2 (1))))
+=> PASSED
+
+CL-USER > (test-fn #'compress-list '((1 a a 3 3 3 b)) '((1 1) (2 A) (3 3) (1 B)))
+Expected: ((1 1) (2 A) (3 3) (1 B))
+Result:   ((1 1) (2 A) (3 3) (1 B))
+=> PASSED
+
+CL-USER > (test-fn #'compress-list '((x x x y z z)) '((3 X) (1 Y) (2 Z)))
+Expected: ((3 X) (1 Y) (2 Z))
+Result:   ((3 X) (1 Y) (2 Z))
+=> PASSED
  ```
