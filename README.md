@@ -45,10 +45,6 @@
     (format t "Expected: ~A~%" expected)
     (format t "Result:   ~A~%" result)
     (format t "=> ~A~%" (if (equal result expected) "PASSED" "FAILED"))))```
- ### Тестування
-```lisp
-(test-fn #'reverse-and-nest-tail '((a b c)) '(C (B (A))))
-(test-fn #'reverse-and-nest-tail '((1 2 3 4)) '(4 (3 (2 (1)))))
  ```
 
  ### Тестування
@@ -73,4 +69,5 @@ Expected: ((3 X) (1 Y) (2 Z))
 Result:   ((3 X) (1 Y) (2 Z))
 => PASSED
  ```
+
 
