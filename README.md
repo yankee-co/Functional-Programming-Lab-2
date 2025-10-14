@@ -75,6 +75,8 @@ Result:   ((3 X) (1 Y) (2 Z))
 => PASSED
  ```
 
+<img width="609" height="398" alt="image" src="https://github.com/user-attachments/assets/c63f4729-77e3-49bc-82a6-f581fafa6400" />
+
 
 
 
