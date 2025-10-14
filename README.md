@@ -30,12 +30,12 @@
 (defun compress-helper (lst current count)
   (cond
     ((null lst)
-     (list (list count current)))                 ; кінець списку
+     (list (list count current)))
     ((equal (car lst) current)
-     (compress-helper (cdr lst) current (+ count 1))) ; продовжуємо рахунок
+     (compress-helper (cdr lst) current (+ count 1)))
     (t
-     (cons (list count current)                   ; додаємо поточну пару
-           (compress-helper (cdr lst) (car lst) 1))))) ; нова послідовність
+     (cons (list count current)
+           (compress-helper (cdr lst) (car lst) 1)))))
 
 (defun compress-list (lst)
   (if (null lst)
@@ -74,6 +74,7 @@ Expected: ((3 X) (1 Y) (2 Z))
 Result:   ((3 X) (1 Y) (2 Z))
 => PASSED
  ```
+
 
 
 
